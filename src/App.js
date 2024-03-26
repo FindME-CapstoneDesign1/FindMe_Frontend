@@ -14,24 +14,16 @@ function App() {
       
       <div className="black-nav">
 
-        <div className="logoimg">
-        </div>
+        <div className="logoimg" />
 
-        <div>
-          FindME
-        </div>
-      
-        
+          <div>
+            FindME
+          </div>
+
+          <div>
+            test page
+          </div>
       </div>
-
-      <h4>
-        {posts}
-      </h4>
-
-      <h4>
-        {testFunct(3)}
-      </h4>
-      
 
 
 
