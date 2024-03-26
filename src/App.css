@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+body{
+  font-family: 'nanumsquare';
+}
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +39,27 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.black-nav {
+  background: black;
+  width : 100%;
+  display: flex;
+  color: white;
+  padding: 20px;
+  font-weight:600;
+  font-size: 30px;
+}
+
+.logoimg {
+  width: 40px;
+  margin-right: 10px;
+  display: inline-block;
+  background-image: url(./image/findme_logo.png);
+  background-size: cover;
+  position: relative;
+  
+}
+
+
