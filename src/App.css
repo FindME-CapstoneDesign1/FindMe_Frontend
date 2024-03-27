@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  display: flex;
+  width: 1920px;
+  height: 1300px;
+  padding-bottom: 0.62px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: white;
+
 }
 body{
   font-family: 'nanumsquare';

@@ -1,33 +1,34 @@
-import findmeLogo from './image/findme_logo.png'
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
+import MainPage from './component/MainPage';
+import TestPage from './component/TestPage';
+import Find from './component/Find'
+import Lost from './component/Lost'
+import Login from './component/Login';
 
 function App() {
-
-  let posts = "cjw";
-
-  function testFunct(input){
-    return input+1;
-  }
-
   return (
-    <div className="App">
-      
-      <div className="black-nav">
-
-        <div className="logoimg" />
-
-          <div>
-            FindME
-          </div>
-
-          <div>
-            test page
-          </div>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <MainPage />
+          </Route>
+          <Route path="/test">
+            <TestPage />
+          </Route>
+          <Route path="/find">
+            <Find />
+          </Route>
+          <Route path="/lost">
+            <Lost />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
       </div>
-
-
-
-    </div>
+    </BrowserRouter>
   );
 }
 
