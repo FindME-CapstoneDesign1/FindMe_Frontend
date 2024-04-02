@@ -5,6 +5,8 @@ import TestPage from './component/TestPage';
 import Find from './component/Find'
 import Lost from './component/Lost'
 import Login from './component/Login';
+import Search from './component/Search';
+import ApiTest from './component/ApiTest';
 
 function App() {
   return (
@@ -25,6 +27,12 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/search">
+            <Search/>
+          </Route>
+          <Route path="/api-test">
+            <ApiTest/>
           </Route>
         </Switch>
       </div>

@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./css/MainPage.css"
+import { useState, useEffect } from "react";
 export default function MainPage(){
+
+
+
     return(
         <div className="mainFrame">
             <div className="subframe">
