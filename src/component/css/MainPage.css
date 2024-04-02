@@ -1,0 +1,273 @@
+.mainFrame{
+    display: flex;
+    width: 1920px;
+    height: 1300px;
+    padding-bottom: 0.62px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: white;
+}
+.subframe{
+display: flex;
+width: 1920px;
+height: 1299.38px;
+padding: 100px 410px 0px 410px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+}
+/* .div.framer-tlyodw{
+display: flex;
+width: 1920px;
+height: 1299.38px;
+padding: 100px 410px 0px 410px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+} */
+.innerFrame{
+    display: flex;
+    width: 1100px;
+    height: 1199.38px;
+    padding: 100px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    flex-shrink: 0;    
+}
+.info{
+    display: flex;
+    width: 1100px;
+    height: 352.38px;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 29.4px;
+    flex-shrink: 0;
+}
+.infoTextFrame{
+    display: flex;
+    width: 1100px;
+    height: 134.98px;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+.Heading1{
+    display: flex;
+    width: 1100px;
+    height: 67.19px;
+    /* padding-right: 307px; */
+    /* align-items: center; */
+    flex-shrink: 0;
+}
+.infotxt1{
+    display: flex;
+    width: 792.9px;
+    height: 67.2px;
+    flex-direction: row;
+    justify-content: left;
+    flex-shrink: 0;
+    color: #2B2E39;
+    font-family: Inter;
+    font-size: 59.375px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 67.2px; /* 113.179% */
+    letter-spacing: -1.92px;
+}
+
+
+.Heading2{
+    display: flex;
+    width: 1100px;
+    height: 67.79px;
+    /* padding-right: 307px; */
+    /* align-items: center; */
+    flex-shrink: 0;
+}
+.infotxt2{
+    display: flex;
+    width: 722.97px;
+    height: 67.2px;
+    flex-direction: row;
+    justify-content: left;
+    flex-shrink: 0;
+    color: #0C33F3;
+    font-family: Inter;
+    font-size: 55.25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 67.2px; /* 121.629% */
+    letter-spacing: -3.2px;
+}
+.plainText{
+    display: flex;
+    width: 650px;
+    height: 112px;
+    padding-right: 7.41px;
+    align-items: center;
+    flex-shrink: 0;    
+    /* justify-content: space-around; */
+    align-items: flex-start;
+    flex-direction: column;
+}
+.useapi{
+    display: flex;
+    width: 642.59px;
+    height: 25px;
+    flex-direction: row-reverse;
+    justify-content: start;
+    flex-shrink: 0;
+    color: #98A1B3;
+    font-family: Inter;
+    font-size: 14.875px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+.buttonContainer{
+    display: flex;
+    height: 65px;
+    padding-bottom: 0.38px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 62px;
+    flex-shrink: 0;
+}
+.bt2box{
+    display: flex;
+    width: 300px;
+    height: 65px;
+    padding: 0px 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 36px;
+    opacity: 0.95;
+    background: #0C33F3;    
+}
+.bt2frame{
+    text-decoration-line : none;
+    display: flex;
+    width: 200px;
+    height: 65px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+.getitem{
+    display: flex;
+    width: 200px;
+    height: 65px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FCFBF8;
+text-align: center;
+font-family: Inter;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 16.8px; /* 76.364% */    
+}
+.bt1box{
+    display: flex;
+    width: 300px;
+    height: 65px;
+    padding: 0px 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 36px;
+    opacity: 0.95;
+    background: #0C33F3;    
+}
+.bt1frame{
+    text-decoration-line : none;
+    display: flex;
+    width: 290px;
+    height: 65px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;    
+}
+.wantfind{
+    display: flex;
+    width: 290px;
+    height: 65px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FCFBF8;
+    text-align: center;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16.8px; /* 76.364% */
+}
+.image{
+    width: 1100px;
+height: 547px;
+flex-shrink: 0;
+border-radius: 16px;
+background: url(../../image/lostperson.png) lightgray 0px 0.259px / 100% 114.487% no-repeat;
+}
+.menu{
+    display: flex;
+    justify-content: flex-end;
+    width: 1100px;
+    height: 55px;
+    flex-shrink: 0;
+}
+.menubox{
+    width: 482.84px;
+    height: 53px;
+    flex-shrink: 0;
+    border-radius: 36px;
+    background: rgba(235, 235, 235, 0.65);
+    backdrop-filter: blur(2.5px);
+}
+.paddingbox{
+    display: flex;
+    width : 30px;
+    height: 53px;
+    flex-shrink : 0;
+}
+.loginbox{
+    display: flex;
+    width: 152.66px;
+    height: 53px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 36px;
+    background: #0C33F3;
+}
+.clickbox{
+    text-decoration-line : none;
+    width: 150.66px;
+    height: 50px;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.logintxt{
+    display: flex;
+    width: 150.66px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FCFBF8;
+    text-align: center;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px; /* 128% */
+}
+

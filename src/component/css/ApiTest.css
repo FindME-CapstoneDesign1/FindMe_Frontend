@@ -1,0 +1,24 @@
+/* 표 전체 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* 표 헤더 셀 스타일 */
+th {
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+}
+
+/* 표 데이터 셀 스타일 */
+td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* 짝수 행 배경색 스타일 */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
