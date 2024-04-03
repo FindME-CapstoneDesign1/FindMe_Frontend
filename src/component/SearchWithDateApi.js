@@ -1,10 +1,11 @@
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useHistory} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "./Loading";
-import "./css/ApiTest.css"
+import "./css/Search.css"
 
-function ApiTest(){
+function SearchWithDateApi(){
+    const history = useHistory();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const START_YMD = queryParams.get("START_YMD");
@@ -30,7 +31,7 @@ function ApiTest(){
     async function springDataSet(){
         setLoading(true);
         await axios
-        .post(baseUrl + "/api/test?" + "START_YMD="+START_YMD+"&END_YMD="+END_YMD+"&PRDT_CL_CD_01="+PRDT_CL_CD_01+"&PRDT_CL_CD_02="+PRDT_CL_CD_02+"&LST_LCT_CD="+LST_LCT_CD+"&pageNo="+pageNo+"&numOfRows="+numOfRows)
+        .post(baseUrl + "/api-with-date?" + "START_YMD="+START_YMD+"&END_YMD="+END_YMD+"&PRDT_CL_CD_01="+PRDT_CL_CD_01+"&PRDT_CL_CD_02="+PRDT_CL_CD_02+"&LST_LCT_CD="+LST_LCT_CD+"&pageNo="+pageNo+"&numOfRows="+numOfRows)
         .then((res)=>{
             console.log(res);
             setData(res.data);
@@ -41,9 +42,12 @@ function ApiTest(){
         setLoading(false);
     }
     
+    const goToDetailPage = (atcId) => {
+        history.push("/api-info?ATC_ID="+atcId); // 상세 페이지의 경로로 이동합니다. 경로는 예시이며 실제 경로로 변경해야 합니다.
+    };
+
     return(
         <div>
-            <h2>api test 화면 구현</h2>
             <div>
             {loading ? <Loading /> : null}
             </div> 
@@ -57,7 +61,7 @@ function ApiTest(){
                 </thead>
                 <tbody>
                     {Array.isArray(data) ? (data.map(item => (
-                        <tr key={item.atcId}>
+                        <tr key={item.atcId} onClick={() => goToDetailPage(item.atcId)}>
                             <td>{item.lstPrdtNm}</td>
                             <td>{item.lstPlace}</td>
                             <td>{item.lstSbjt}</td>
@@ -69,8 +73,11 @@ function ApiTest(){
             <Link to = "/">
                 돌아가기
             </Link>
+            <button onClick={() => history.goBack()}>
+            뒤로 돌아가기
+            </button>
         </div>
     );
 }
 
-export default ApiTest;
+export default SearchWithDateApi;

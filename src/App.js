@@ -5,8 +5,12 @@ import TestPage from './component/TestPage';
 import Find from './component/Find'
 import Login from './component/Login';
 import Search from './component/Search';
-import ApiTest from './component/ApiTest';
-import Lost from './component/Lost';
+import SearchWithDateApi from './component/SearchWithDateApi';
+import SearchWithPlaceApi from './component/SearchWithPlaceApi';
+import SearchWithDate from './component/SearchWithDate';
+import SearchWithPlace from './component/SearchWithPlace';
+import SearchSelect from './component/SearchSelect';
+import SearchInfoApi from './component/SearchInfoApi';
 
 function App() {
   return (
@@ -28,11 +32,23 @@ function App() {
           <Route path="/search">
             <Search/>
           </Route>
-          <Route path="/lost">
-            <Lost/>
+          <Route path="/search-with-date">
+            <SearchWithDate/>
           </Route>
-          <Route path="/api/test">
-            <ApiTest/>
+          <Route path="/search-with-place">
+            <SearchWithPlace/>
+          </Route>
+          <Route path="/api-with-date">
+            <SearchWithDateApi/>
+          </Route>
+          <Route path="/api-with-place">
+            <SearchWithPlaceApi/>
+          </Route>
+          <Route path="/search-select">
+            <SearchSelect/>
+          </Route>
+          <Route path="/api-info">
+            <SearchInfoApi/>
           </Route>
         </Switch>
       </div>

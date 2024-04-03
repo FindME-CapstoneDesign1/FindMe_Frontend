@@ -2,9 +2,11 @@ import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import Button from '@mui/material/Button';
+import {Link, useHistory} from "react-router-dom";
 
 
 export default function Lost() {
+  const history = useHistory();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
@@ -21,9 +23,8 @@ export default function Lost() {
     const startDateString = formatDateToString(startDate);
     const endDateString = formatDateToString(endDate);
 
-    const endpoint = `http://localhost:3000/api/test?START_YMD=${startDateString}&END_YMD=${endDateString}&PRDT_CL_CD_01=PRA000&PRDT_CL_CD_02=PRA300&LST_LCT_CD=LCA000&pageNo=1&numOfRows=10`;
-
-    window.open(endpoint, "_blank");
+    const endpoint = `api-with-date?START_YMD=${startDateString}&END_YMD=${endDateString}&PRDT_CL_CD_01=PRA000&PRDT_CL_CD_02=PRA300&LST_LCT_CD=LCA000&pageNo=1&numOfRows=10`;
+    history.push(endpoint);
   };
 
   const formatDateToString = (date) => {
@@ -35,11 +36,7 @@ export default function Lost() {
   };
 
   return (
-    <div>
-    <h2>
-        Lost Items
-    </h2>
-    
+    <div>    
     <div className="date-selector">
       {/* 시작일 선택 */}
         <div className="date-picker-container">
@@ -67,6 +64,11 @@ export default function Lost() {
 
     <div>
       <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+    </div>
+    <div>
+      <Link to = "/">
+          돌아가기
+      </Link>
     </div>
     </div>
   );
