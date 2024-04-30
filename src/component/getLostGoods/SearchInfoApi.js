@@ -6,6 +6,9 @@ import "../css/Search.module.css"
 
 
 function SearchInfoApi(){
+    /*
+    변경 test
+    */
     let history = useHistory();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
