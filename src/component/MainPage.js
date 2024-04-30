@@ -52,17 +52,17 @@ export default function MainPage(){
                             </div>
                         </div>
                         <div className="buttonContainer">
-                            <Link to="/find" className="bt2frame">
+                            <Link to="/find-with-place" className="bt2frame">
                                 <div className="bt2box">
                                     <div className="getitem">
-                                    분실물을 주웠어요
+                                    습득물 조회하기
                                     </div>
                                 </div>                                
                             </Link>
-                            <Link to="/lost" className="bt1frame">
+                            <Link to="/search-select" className="bt1frame">
                                 <div className="bt1box">
                                     <div className="wantfind">
-                                    잃어버린 물건을 찾고 싶어요
+                                    분실물 조회하기
                                     </div>
                                 </div>
                             </Link>
