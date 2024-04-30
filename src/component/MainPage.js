@@ -52,7 +52,7 @@ export default function MainPage(){
                             </div>
                         </div>
                         <div className="buttonContainer">
-                            <Link to="/find" className="bt2frame">
+                            <Link to="/find-with-place" className="bt2frame">
                                 <div className="bt2box">
                                     <div className="getitem">
                                     습득물 조회하기

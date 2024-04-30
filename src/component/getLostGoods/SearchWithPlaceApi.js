@@ -1,10 +1,12 @@
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useHistory} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Loading from "./Loading";
-import "./css/Search.css"
+import Loading from "../Loading";
+import "../css/Search.module.css"
+
 
 function SearchWithPlaceApi(){
+    const history = useHistory();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const place = queryParams.get("LST_PLACE");
@@ -38,6 +40,10 @@ function SearchWithPlaceApi(){
         })
         setLoading(false);
     }
+
+    const goToDetailPage = (atcId) => {
+        history.push("/api-info?ATC_ID="+atcId); // 상세 페이지의 경로로 이동합니다. 경로는 예시이며 실제 경로로 변경해야 합니다.
+    };
     
     return(
         <div>
@@ -50,14 +56,16 @@ function SearchWithPlaceApi(){
                         <th>분실 제품명</th>
                         <th>분실 장소</th>
                         <th>분실 사항</th>
+                        <th>관리ID</th>
                     </tr>
                 </thead>
                 <tbody>
                     {Array.isArray(data) ? (data.map(item => (
-                        <tr key={item.atcId}>
+                        <tr key={item.atcId} onClick={() => goToDetailPage(item.atcId)}>
                             <td>{item.lstPrdtNm}</td>
                             <td>{item.lstPlace}</td>
                             <td>{item.lstSbjt}</td>
+                            <td>{item.atcId}</td>
                         </tr>
                     ))) : (<p>Loading...</p>)}
                 </tbody>
@@ -65,6 +73,9 @@ function SearchWithPlaceApi(){
             <Link to = "/">
                 돌아가기
             </Link>
+            <button onClick={() => history.goBack()}>
+            뒤로 돌아가기
+            </button>
         </div>
     );
 }

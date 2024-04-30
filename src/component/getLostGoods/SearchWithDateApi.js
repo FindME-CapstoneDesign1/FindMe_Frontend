@@ -1,16 +1,18 @@
 import {Link, useLocation, useHistory} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Loading from "./Loading";
-import "./css/Search.css"
+import Loading from "../Loading";
+import "../css/Search.module.css"
 
-
-function SearchWithPlaceApi(){
+function SearchWithDateApi(){
     const history = useHistory();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
-    const place = queryParams.get("LST_PLACE");
-    const selectedSubcategory = queryParams.get("LST_PRDT_NM");
+    const START_YMD = queryParams.get("START_YMD");
+    const END_YMD = queryParams.get("END_YMD");
+    const PRDT_CL_CD_01 = queryParams.get("PRDT_CL_CD_01");
+    const PRDT_CL_CD_02 = queryParams.get("PRDT_CL_CD_02");
+    const LST_LCT_CD = queryParams.get("LST_LCT_CD");
     const pageNo = queryParams.get("pageNo");
     const numOfRows = queryParams.get("numOfRows");
     
@@ -29,22 +31,21 @@ function SearchWithPlaceApi(){
     async function springDataSet(){
         setLoading(true);
         await axios
-        .post(baseUrl + "/api-with-place?LST_PLACE="+place.toString()+"&LST_PRDT_NM="+selectedSubcategory.toString()+"&pageNo=1&numOfRows=10")
+        .post(baseUrl + "/api-with-date?" + "START_YMD="+START_YMD+"&END_YMD="+END_YMD+"&PRDT_CL_CD_01="+PRDT_CL_CD_01+"&PRDT_CL_CD_02="+PRDT_CL_CD_02+"&LST_LCT_CD="+LST_LCT_CD+"&pageNo="+pageNo+"&numOfRows="+numOfRows)
         .then((res)=>{
             console.log(res);
             setData(res.data);
-            console.log(data);
         })
         .catch((err)=>{
             console.log(err);
         })
         setLoading(false);
     }
-
+    
     const goToDetailPage = (atcId) => {
         history.push("/api-info?ATC_ID="+atcId); // 상세 페이지의 경로로 이동합니다. 경로는 예시이며 실제 경로로 변경해야 합니다.
     };
-    
+
     return(
         <div>
             <div>
@@ -68,6 +69,7 @@ function SearchWithPlaceApi(){
                     ))) : (<p>Loading...</p>)}
                 </tbody>
             </table>
+        
             <Link to = "/">
                 돌아가기
             </Link>
@@ -78,4 +80,4 @@ function SearchWithPlaceApi(){
     );
 }
 
-export default SearchWithPlaceApi;
+export default SearchWithDateApi;

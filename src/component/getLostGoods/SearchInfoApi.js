@@ -1,8 +1,8 @@
 import {Link, useLocation, useHistory} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Loading from "./Loading";
-import "./css/Search.css"
+import Loading from "../Loading";
+import "../css/Search.module.css"
 
 
 function SearchInfoApi(){

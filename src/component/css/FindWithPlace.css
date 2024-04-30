@@ -1,0 +1,113 @@
+.FindinnerFrame{
+    display: flex;
+    width: 1100px;
+    height: 1199.38px;
+    padding: 100px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-shrink: 0;    
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Container for date pickers */
+  .date-selector {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Individual date picker container */
+  .date-picker-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .date-picker-container label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  /* Style for the date picker itself */
+  .date-picker {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  /* Place input styling */
+  #placeInput {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+  }
+  
+  /* Select dropdown styling */
+  select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Back button additional styling if needed */
+  .goBack-button {
+    background-color: #6c757d;
+  }
+  
+  .goBack-button:hover {
+    background-color: #5a6268;
+  }
+  
+  /* If using Material-UI Button */
+  .Button {
+    margin-top: 20px;
+    padding: 10px 20px;
+  }
+  .date-picker-container,
+#placeInput,
+select,
+.button-container { /* Assuming you have or will add a container for your buttons */
+  margin-bottom: 30px; /* Increase the bottom margin */
+}
+
+/* You may want to add some top margin to your heading for more space */
+h2 {
+  margin-top: 30px; /* Adjust the value as needed for your design */
+}
+
+/* If you want to increase the space around your "go back" button */
+.goBack-button {
+  margin-top: 30px; /* Adds space above the button */
+  margin-bottom: 30px; /* Adds space below the button */
+}

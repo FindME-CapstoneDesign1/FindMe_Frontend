@@ -1,20 +1,23 @@
 import {Link, useLocation, useHistory} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Loading from "./Loading";
-import "./css/Search.css"
+import Loading from "../Loading";
+import "../css/Search.module.css"
 
-function SearchWithDateApi(){
+export default function FindWithDateApi(){
     const history = useHistory();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
-    const START_YMD = queryParams.get("START_YMD");
-    const END_YMD = queryParams.get("END_YMD");
+
+    const pageNo = queryParams.get("pageNo");
+    const numOfRows = queryParams.get("numOfRows");    
     const PRDT_CL_CD_01 = queryParams.get("PRDT_CL_CD_01");
     const PRDT_CL_CD_02 = queryParams.get("PRDT_CL_CD_02");
-    const LST_LCT_CD = queryParams.get("LST_LCT_CD");
-    const pageNo = queryParams.get("pageNo");
-    const numOfRows = queryParams.get("numOfRows");
+    const CLR_CD = queryParams.get("CLR_CD");
+    const START_YMD = queryParams.get("START_YMD");
+    const END_YMD = queryParams.get("END_YMD");
+    const N_FD_LCT_CD = queryParams.get("N_FD_LCT_CD");
+
     
     const [data, setData] = useState('');
 
@@ -31,7 +34,7 @@ function SearchWithDateApi(){
     async function springDataSet(){
         setLoading(true);
         await axios
-        .post(baseUrl + "/api-with-date?" + "START_YMD="+START_YMD+"&END_YMD="+END_YMD+"&PRDT_CL_CD_01="+PRDT_CL_CD_01+"&PRDT_CL_CD_02="+PRDT_CL_CD_02+"&LST_LCT_CD="+LST_LCT_CD+"&pageNo="+pageNo+"&numOfRows="+numOfRows)
+        .post(baseUrl + "/api-find-with-date?" + "START_YMD="+START_YMD+"&END_YMD="+END_YMD+"&PRDT_CL_CD_01="+PRDT_CL_CD_01+"&PRDT_CL_CD_02="+PRDT_CL_CD_02+"&CLR_CD="+CLR_CD+"&pageNo="+pageNo+"&numOfRows="+numOfRows+"&N_FD_LCT_CD="+N_FD_LCT_CD)
         .then((res)=>{
             console.log(res);
             setData(res.data);
@@ -54,17 +57,17 @@ function SearchWithDateApi(){
             <table>
                 <thead>
                     <tr>
-                        <th>분실 제품명</th>
-                        <th>분실 장소</th>
-                        <th>분실 사항</th>
+                        <th>습득 제품명</th>
+                        <th>습득 장소</th>
+                        <th>습득 특이 사항</th>
                     </tr>
                 </thead>
                 <tbody>
                     {Array.isArray(data) ? (data.map(item => (
                         <tr key={item.atcId} onClick={() => goToDetailPage(item.atcId)}>
-                            <td>{item.lstPrdtNm}</td>
-                            <td>{item.lstPlace}</td>
-                            <td>{item.lstSbjt}</td>
+                            <td>{item.fdPrdtNm}</td>
+                            <td>{item.depPlace}</td>
+                            <td>{item.fdSbjt}</td>
                         </tr>
                     ))) : (<p>Loading...</p>)}
                 </tbody>
@@ -80,4 +83,4 @@ function SearchWithDateApi(){
     );
 }
 
-export default SearchWithDateApi;
+ 
