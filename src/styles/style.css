@@ -1,0 +1,55 @@
+/* 공통 스타일 */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  #wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+  }
+  
+  main {
+    padding-top: 100px; /* header의 height값과 동일 */
+    padding-bottom: 110px; /* footer의 height값과 동일 */
+  }
+  
+  
+  footer {
+    width: 100%;
+    height: 110px; /* 내용물에 따라 알맞는 값 설정 */
+    bottom: 0;
+    position: absolute;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  footer nav a {
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  footer p {
+    margin: 10px 0 0;
+    color: #6c757d;
+  }
+  
+  footer p span {
+    display: block;
+  }
+  
+  header {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: #ddd;
+    z-index: 1000;
+  }
+  section {
+    padding-top: 150px; padding-bottom: 150px;
+  }

@@ -1,75 +1,26 @@
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import './App.css';
-import MainPage from './component/MainPage';
-import TestPage from './component/TestPage';
-import Find from './component/lostFound/Find'
-import Login from './component/Login';
-import SearchWithDateApi from './component/getLostGoods/SearchWithDateApi';
-import SearchWithPlaceApi from './component/getLostGoods/SearchWithPlaceApi';
-import SearchWithDate from './component/getLostGoods/SearchWithDate';
-import SearchWithPlace from './component/getLostGoods/SearchWithPlace';
-import SearchSelect from './component/getLostGoods/SearchSelect';
-import SearchInfoApi from './component/getLostGoods/SearchInfoApi';
-import FindWithDate from './component/lostFound/FindWithDate';
-import FindWithDateApi from './component/lostFound/FindWithDateApi';
-import FindSelect from './component/lostFound/FindSelect';
-import FindWithPlace from './component/lostFound/FindWithPlace';
-import FindWithPlaceApi from './component/lostFound/FindWithPlaceApi';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import MainPage from './pages/mainPage/MainPage';
+import LoginPage from './pages/LoginPage';
+import InfoPage from './pages/info/InfoPage';
+import './styles/style.css';  // 스타일 파일 임포트
+import SearchPage from './pages/search/SearchPage';
+import ResultsPage from './pages/result/ResultsPage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
+    <Router>
+      <Layout>
         <Switch>
-          <Route exact path="/">
-            <MainPage />
-          </Route>
-          <Route path="/test">
-            <TestPage />
-          </Route>
-          <Route path="/find">
-            <Find />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/search-with-date">
-            <SearchWithDate/>
-          </Route>
-          <Route path="/search-with-place">
-            <SearchWithPlace/>
-          </Route>
-          <Route path="/api-with-date">
-            <SearchWithDateApi/>
-          </Route>
-          <Route path="/api-with-place">
-            <SearchWithPlaceApi/>
-          </Route>
-          <Route path="/search-select">
-            <SearchSelect/>
-          </Route>
-          <Route path="/api-info">
-            <SearchInfoApi/>
-          </Route>
-          <Route path="/find-with-date">
-            <FindWithDate/>
-          </Route>
-          <Route path="/api-find-with-date">
-            <FindWithDateApi/>
-          </Route>
-          <Route path="/find-select">
-            <FindSelect/>
-          </Route>
-          <Route path="/api-find-with-place">
-            <FindWithPlaceApi/>
-          </Route>
-          <Route path="/find-with-place">
-            <FindWithPlace/>
-          </Route>
-
+          <Route path="/" exact component={MainPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/search" component={SearchPage} />
+          <Route path="/find/:page" component={ResultsPage} />
+          <Route path="/info/:atcid" component={InfoPage} />
         </Switch>
-      </div>
-    </BrowserRouter>
+      </Layout>
+    </Router>
   );
 }
 

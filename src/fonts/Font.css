@@ -1,0 +1,87 @@
+/* Montserrat-BlackItalic 폰트 정의 */
+@font-face {
+    font-family: "Montserrat";
+    font-style: italic;
+    font-weight: 900; /* BlackItalic은 일반적으로 매우 굵은 폰트이므로 900 사용 */
+    src: url("./Montserrat-BlackItalic.woff") format("woff");
+}
+
+/* Montserrat-Regular 폰트 정의 */
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400; /* Regular는 일반적으로 400 사용 */
+    src: url("./Montserrat-Regular.woff") format("woff");
+}
+
+/* NotoSansKR-Black 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 900; /* Black은 일반적으로 매우 굵은 폰트이므로 900 사용 */
+    src: url("./NotoSansKR-Black.woff") format("woff");
+}
+
+/* NotoSansKR-Bold 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 700; /* Bold는 일반적으로 700 사용 */
+    src: url("./NotoSansKR-Bold.woff") format("woff");
+}
+
+/* NotoSansKR-ExtraBold 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 800; /* ExtraBold는 일반적으로 800 사용 */
+    src: url("./NotoSansKR-ExtraBold.woff") format("woff");
+}
+
+/* NotoSansKR-ExtraLight 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 200; /* ExtraLight는 일반적으로 200 사용 */
+    src: url("./NotoSansKR-ExtraLight.woff") format("woff");
+}
+
+/* NotoSansKR-Light 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 300; /* Light는 일반적으로 300 사용 */
+    src: url("./NotoSansKR-Light.woff") format("woff");
+}
+
+/* NotoSansKR-Medium 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 500; /* Medium은 일반적으로 500 사용 */
+    src: url("./NotoSansKR-Medium.woff") format("woff");
+}
+
+/* NotoSansKR-Regular 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 400; /* Regular는 일반적으로 400 사용 */
+    src: url("./NotoSansKR-Regular.woff") format("woff");
+}
+
+/* NotoSansKR-SemiBold 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 600; /* SemiBold는 일반적으로 600 사용 */
+    src: url("./NotoSansKR-SemiBold.woff") format("woff");
+}
+
+/* NotoSansKR-Thin 폰트 정의 */
+@font-face {
+    font-family: "NotoSansKR";
+    font-style: normal;
+    font-weight: 100; /* Thin은 일반적으로 100 사용 */
+    src: url("./NotoSansKR-Thin.woff") format("woff");
+}
