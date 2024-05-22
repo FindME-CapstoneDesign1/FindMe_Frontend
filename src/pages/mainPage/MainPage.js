@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './MainPage.css';
-import Loading from '../loading/Loading';
+import Loading from '../loading/LoadingMain';
 
 const MainPage = () => {
   const [data, setData] = useState({ foundItemCount: 0, notFoundItemCount: 0 });
