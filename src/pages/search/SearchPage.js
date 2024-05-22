@@ -299,10 +299,15 @@ const foundPlaces = {
   '기타': ['기타', '노상', '불상']
 };
 
-const etcOptions = [
+const placeEtc = [
   { name: '선택 장소만 조회', value: '0' },
   { name: '기타 장소도 함께 조회', value: '1' }
 ];
+
+const itemEtc = [
+  { name: '선택 물품 카테고리만 조회', value: '0' },
+  { name: '기타 물품도 함께 조회', value: '1' }
+]
 
 const SearchPage = () => {
   const [form, setForm] = useState({
@@ -312,7 +317,8 @@ const SearchPage = () => {
     foundPlaceCategory: '',
     foundPlace: '',
     ymd: '',
-    etc: ''
+    placeEtc: '',
+    itemEtc: '0'
   });
 
   const [showKeywordInput, setShowKeywordInput] = useState(false);
@@ -409,6 +415,18 @@ const SearchPage = () => {
                 ))}
               </select>
             )}
+
+            {form.productCategory && (
+              <>
+                <h2>잃어버린 물건의 종류에 대한 선택 사항</h2>
+                <select name="itemEtc" value={form.itemEtc} onChange={handleChange}>
+                  <option value="">선택</option>
+                  {itemEtc.map(option => (
+                    <option key={option.value} value={option.value}>{option.name}</option>
+                  ))}
+                </select>
+              </>
+            )}
           </>
         )}
 
@@ -450,16 +468,16 @@ const SearchPage = () => {
           <>
             <h2>습득 위치를 정확히 알 수 없는 물품도 조회 할까요?</h2>
             <p>"기타 장소도 함께 조회"를 선택하시면, "기타", "불상"의 검색 결과가 포함됩니다.</p>
-            <select name="etc" value={form.etc} onChange={handleChange}>
+            <select name="placeEtc" value={form.placeEtc} onChange={handleChange}>
               <option value="">기타 선택</option>
-              {etcOptions.map(option => (
+              {placeEtc.map(option => (
                 <option key={option.value} value={option.value}>{option.name}</option>
               ))}
             </select>
           </>
         )}
 
-        {form.etc && (
+        {form.placeEtc && (
           <>
             <h2>위치나 장소에 대한 키워드를 포함해서 검색할까요?</h2>
             <div className="button-group">

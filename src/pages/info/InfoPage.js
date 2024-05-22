@@ -15,6 +15,7 @@ const InfoPage = () => {
   const apiKey = process.env.REACT_APP_KAKAO_API_KEY;
   const [coords, setCoords] = useState({ lat: 37.49676871972202, lng: 127.02474726969814 }); //eslint-disable-line no-unused-vars
   const [XandY, setXandY] = useState({ lat: 37.49676871972202, lng: 127.02474726969814 });
+  const [modalVisible, setModalVisible] = useState(false);
 
   const springInfoData = useCallback(async () => {
     setLoading(true);
@@ -104,13 +105,23 @@ const InfoPage = () => {
   const mapLink = `https://map.kakao.com/link/map/${item.depPlace},${XandY.lat},${XandY.lng}`;
   const directionLink = `https://map.kakao.com/link/to/${item.depPlace},${XandY.lat},${XandY.lng}`;
 
+  
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
   return (
     <div className="info-page">
       <h1 className="info-header">"{item.fdPrdtNm}"의 상세 정보</h1>
       <button className="back-button" onClick={() => history.goBack()}>돌아가기</button>
       <div className="item-details">
         <div className="item-image">
-          <img src={item.fdFilePathImg} alt={item.fdPrdtNm} />
+          <img src={item.fdFilePathImg} alt={item.fdPrdtNm} onClick={openModal} />
         </div>
         <div className="item-info">
           <p className="info-text">보관 장소: {item.depPlace}</p>
@@ -122,21 +133,31 @@ const InfoPage = () => {
         </div>
       </div>
       <div className="map-container">
+        <div className='map-text'>"{item.depPlace}에서 보관 중입니다"</div>
         <div id="map"></div>
-      </div>
-      <div className="map-buttons">
-        <a href={mapLink} target="_blank" rel="noopener noreferrer">
-          <button className="map-button">지도 바로가기</button>
-        </a>
-        <a href={directionLink} target="_blank" rel="noopener noreferrer">
-          <button className="map-button">길찾기 바로가기</button>
-        </a>
-      </div>
-      <div className='bottom-box'>
-        <button className="bottom-back-button" onClick={() => history.goBack()}>
+        <div className="map-buttons">
+          <a href={mapLink} target="_blank" rel="noopener noreferrer">
+            <button className="map-button">지도 바로가기</button>
+          </a>
+          <a href={directionLink} target="_blank" rel="noopener noreferrer">
+            <button className="map-button">길찾기 바로가기</button>
+          </a>
+        </div>
+        <div className='bottom-box'>
+          <button className="bottom-back-button" onClick={() => history.goBack()}>
           목록으로 돌아가기
-        </button>
+         </button>
+        </div>
       </div>
+    
+      {modalVisible && (
+        <div className="modal" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close" onClick={closeModal}>&times;</span>
+            <img src={item.fdFilePathImg} alt={item.fdPrdtNm} style={{ width: '100%' }} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
