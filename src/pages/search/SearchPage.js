@@ -121,6 +121,7 @@ const SearchPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.clear();
     const queryParams = new URLSearchParams(form).toString();
     history.push(`/find?${queryParams}`);
   };
