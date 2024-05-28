@@ -1,0 +1,60 @@
+/* src/pages/foundPosts/FoundPostsPage.css */
+
+.found-posts-page {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.found-posts-page h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #091845;
+}
+
+.found-posts-page ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.found-posts-page li {
+  background: #ffffff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.found-posts-page li:hover {
+  transform: translateY(-5px);
+}
+
+.found-posts-page h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.found-posts-page p {
+  margin: 0.25rem 0;
+  color: #555;
+}
+
+.found-posts-page img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.no-results {
+  text-align: center;
+  color: #555;
+}

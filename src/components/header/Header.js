@@ -11,7 +11,14 @@ const Header = () => {
             <Link to="/">FindME</Link>
           </div>
         </div>
-      </div>
+          <nav className="nav-links">
+            <Link to="/search">습득물 검색</Link>
+            <Link to="/lost-posts">물건을 잃어버렸어요</Link>
+            <Link to="/found-posts">물건을 주웠어요</Link>
+          </nav>
+
+
+        </div>
     </header>
   );
 }

@@ -1,0 +1,31 @@
+/* 폰트 설정 */
+@import url('../../fonts/Font.css');
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #091845;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+}
+
+.header-content {
+  text-align: center;
+}
+
+.custom-font {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;  /* 글자 크기를 적절히 조절 */
+  font-weight: bold;
+  font-style: italic;
+}
+
+.custom-font a {
+  color: white;  /* 글씨 색상을 검정색으로 변경 */
+  text-decoration: none;  /* 밑줄 제거 */
+}
