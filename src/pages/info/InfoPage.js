@@ -105,8 +105,6 @@ const InfoPage = () => {
   const mapLink = `https://map.kakao.com/link/map/${item.depPlace},${XandY.lat},${XandY.lng}`;
   const directionLink = `https://map.kakao.com/link/to/${item.depPlace},${XandY.lat},${XandY.lng}`;
 
-  
-
   const openModal = () => {
     setModalVisible(true);
   };
