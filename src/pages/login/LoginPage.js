@@ -1,14 +1,13 @@
 import React from 'react';
-import GoogleLoginButton from './GoogleLoginButton';
 import { useLocation } from 'react-router-dom';
+import GoogleLoginButton from './GoogleLoginButton';
 
 const LoginPage = () => {
   const location = useLocation();
-  const message = location.state?.message || '';
+  const message = location.state?.message;
 
   return (
     <div>
-      <h1>Login</h1>
       {message && <p>{message}</p>}
       <GoogleLoginButton />
     </div>
@@ -16,3 +15,20 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+// import React from 'react';
+// import { useLocation } from 'react-router-dom';
+// import GoogleLoginButton from './GoogleLoginButton';
+
+// const LoginPage = () => {
+//   const location = useLocation();
+//   const message = location.state?.message;
+
+//   return (
+//     <div>
+//       {message && <p>{message}</p>}
+//       <GoogleLoginButton />
+//     </div>
+//   );
+// };
+
+// export default LoginPage;

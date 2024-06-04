@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import './InfoPage.css';
 import Loading from '../loading/Loading';
@@ -34,6 +34,8 @@ const InfoPage = () => {
       springInfoData();
     }
   }, [springInfoData, item]);
+
+
 
   useEffect(() => {
     if (!loading && item) {

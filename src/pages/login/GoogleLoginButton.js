@@ -3,12 +3,14 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { postGoogleLogin } from './postGoogleLogin';
 import { useAuth } from '../../auth/AuthContext';
 import useScript from '../../hooks/useScript';
+import { useLocation} from 'react-router-dom';
+import './Login.css';
 
 function GoogleLoginButton() {
   useScript('https://accounts.google.com/gsi/client', () => {
     console.log('Google script loaded');
   });
-
+  const location = useLocation();
   const { login } = useAuth();
 
   const handleSuccess = async (response) => {
@@ -16,8 +18,10 @@ function GoogleLoginButton() {
     try {
       const serverResponse = await postGoogleLogin(token);
       localStorage.setItem('token', serverResponse.token);  // Save the JWT token to local storage
-      login(serverResponse.token);  // Update login state
-      window.location.href = '/loginSuccess';
+      const redirectUrl = new URLSearchParams(location.search).get('redirectUrl') || '/';
+      login(serverResponse.token);  // 로그인 상태 업데이트
+      window.location.href = redirectUrl;
+
     } catch (error) {
       window.location.href = '/loginFailure';
     }
@@ -29,15 +33,24 @@ function GoogleLoginButton() {
   };
 
   return (
-    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <h1>Login with Google</h1>
-        <GoogleLogin
-          onSuccess={handleSuccess}
-          onError={handleFailure}
-        />
+    <div className='google-login-page'>
+      <div className='login-box'>
+
+      
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+          <h1>Google 계정으로 로그인</h1>
+          <div className='google-login-button'>
+          <GoogleLogin
+            onSuccess={handleSuccess}
+            onError={handleFailure}
+          />
+          </div>
+        </div>
+        
+      </GoogleOAuthProvider>
       </div>
-    </GoogleOAuthProvider>
+    </div>
   );
 }
 

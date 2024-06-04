@@ -54,5 +54,17 @@
   font-size: 1.7rem;
   font-weight: bold;
   text-decoration: none;
-  margin-right: 10rem;
+  margin-right: 3rem;
+}
+
+.logout-button {
+  margin-right: 3rem;
+  padding: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #091845;
+  color: gray;
+  border: none;
+  cursor: pointer;
 }
