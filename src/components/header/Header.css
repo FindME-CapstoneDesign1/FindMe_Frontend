@@ -48,3 +48,11 @@
 .nav-links a:hover {
   color: #ffd700;  /* 마우스 오버 시 색상 변경 */
 }
+
+.login-button a {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 10rem;
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import MainPage from './pages/mainPage/MainPage';
-import LoginPage from './pages/LoginPage';
 import InfoPage from './pages/info/InfoPage';
 import './styles/style.css';  // 스타일 파일 임포트
 import SearchPage from './pages/search/SearchPage';
@@ -13,15 +12,22 @@ import PostForm from './pages/post/PostForm';
 import PostList from './pages/post/PostList';
 import LostPostsPage from './pages/post/lost/LostPostsPage';
 import FoundPostsPage from './pages/post/found/FoundPostsPage';
+import GoogleLoginButton from './pages/login/GoogleLoginButton';
+import LoginSuccess from './pages/login/LoginSuccess';
+import LoginFailure from './pages/login/LoginFailure';
+import { AuthProvider } from './components/auth/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <ScrollToTop/>
       <Layout>
         <Switch>
           <Route path="/" exact component={MainPage}></Route>
-          <Route path="/login" component={LoginPage}></Route>
+          <Route path="/login" component={GoogleLoginButton}></Route>
+          <Route path="/loginSuccess" component={LoginSuccess} />
+          <Route path="/loginFailure" component={LoginFailure} />
           <Route path="/search" component={SearchPage}></Route>
           <Route path="/find" component={ResultsPage}></Route>
           <Route path="/info/:atcid" component={InfoPage}></Route>
@@ -38,6 +44,7 @@ function App() {
         </Switch>
       </Layout>
     </Router>
+    </AuthProvider>
   );
 }
 

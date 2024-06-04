@@ -1,17 +1,23 @@
 .lost-posts-page {
     padding: 2rem;
     background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .lost-posts-page h1 {
-    text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
+    color: #091845;
   }
   
   .lost-posts-page ul {
     list-style-type: none;
     padding: 0;
+    width: 100%;
+    max-width: 800px;
   }
   
   .lost-posts-page li {
@@ -20,20 +26,34 @@
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+
+  .lost-posts-page li:hover {
+    transform: translateY(-5px);
   }
   
   .lost-posts-page h2 {
     font-size: 1.5rem;
     margin: 0;
+    color: #333;
   }
   
   .lost-posts-page p {
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
+    color: #555;
   }
   
   .lost-posts-page img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.25rem;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .no-results {
+    text-align: center;
+    color: #555;
   }
   
