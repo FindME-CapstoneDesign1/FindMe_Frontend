@@ -35,9 +35,9 @@ function App() {
           <PrivateRoute path="/info/:atcid" component={InfoPage}></PrivateRoute>
 
 
-          <Route path="/lost-posts" exact component={LostPostsPage}></Route>
+          <PrivateRoute path="/lost-posts" exact component={LostPostsPage}></PrivateRoute>
 
-          <Route path="/found-posts" component={FoundPostsPage}></Route>
+          <PrivateRoute path="/found-posts" component={FoundPostsPage}></PrivateRoute>
 
           <Route path="/posts" exact component={PostList}></Route>
           <Route path="/posts/:id" component={PostDetail}></Route>

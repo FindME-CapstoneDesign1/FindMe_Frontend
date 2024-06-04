@@ -35,11 +35,10 @@ function GoogleLoginButton() {
   return (
     <div className='google-login-page'>
       <div className='login-box'>
-
-      
       <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
           <h1>Google 계정으로 로그인</h1>
+          <h3>해당 서비스는 로그인 이후 사용 가능합니다</h3>
           <div className='google-login-button'>
           <GoogleLogin
             onSuccess={handleSuccess}

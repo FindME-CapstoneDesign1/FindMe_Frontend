@@ -1,58 +1,54 @@
-// src/pages/foundPosts/FoundPostsPage.js
-
 import React, { useEffect, useState } from 'react';
-import { getFoundPosts } from '../posts';
+import axios from 'axios';
 import './FoundPostsPage.css';
 
 const FoundPostsPage = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const data = await getFoundPosts();
-        setPosts(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
+    fetchFoundPosts();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  const fetchFoundPosts = async () => {
+    const response = await axios.get('http://localhost:8080/posts/found');
+    setPosts(response.data);
+  };
 
   return (
-    <div className="found-posts-page">
-      <h1>물건을 주웠어요</h1>
-      {posts.length === 0 ? (
-        <p>No posts found.</p>
-      ) : (
-        <ul>
+    <div className="posts-page">
+      <h1>습득물 게시글</h1>
+      <table className="posts-table">
+        <thead>
+          <tr>
+            <th>상품 분류</th>
+            <th>내용</th>
+            <th>상품명</th>
+            <th>습득 장소</th>
+            <th>습득 주소지</th>
+            <th>작성일자</th>
+            <th>조회수</th>
+            <th>이미지</th>
+          </tr>
+        </thead>
+        <tbody>
           {posts.map(post => (
-            <li key={post.id}>
-              <h2>{post.productName}</h2>
-              <p>{post.content}</p>
-              <p>분류: {post.ProductClassifyName}</p>
-              <p>습득 장소: {post.foundPlace}</p>
-              <p>습득 주소: {post.adress}</p>
-              <p>작성일: {new Date(post.date).toLocaleDateString()}</p>
-              <p>조회수: {post.views}</p>
-              {post.imgPath && <img src={post.imgPath} alt={post.productName} />}
-            </li>
+            <tr key={post.id}>
+              <td>{post.ProductClassifyName}</td>
+              <td>{post.content}</td>
+              <td>{post.productName}</td>
+              <td>{post.foundPlace}</td>
+              <td>{post.adress}</td>
+              <td>{new Date(post.date).toLocaleDateString()}</td>
+              <td>{post.views}</td>
+              <td>
+                {post.imgPath && (
+                  <img src={post.imgPath} alt={post.productName} style={{ width: '50px' }} />
+                )}
+              </td>
+            </tr>
           ))}
-        </ul>
-      )}
+        </tbody>
+      </table>
     </div>
   );
 };
