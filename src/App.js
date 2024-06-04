@@ -12,11 +12,12 @@ import PostForm from './pages/post/PostForm';
 import PostList from './pages/post/PostList';
 import LostPostsPage from './pages/post/lost/LostPostsPage';
 import FoundPostsPage from './pages/post/found/FoundPostsPage';
-import GoogleLoginButton from './pages/login/GoogleLoginButton';
+// import GoogleLoginButton from './pages/login/GoogleLoginButton';
 import LoginSuccess from './pages/login/LoginSuccess';
 import LoginFailure from './pages/login/LoginFailure';
 import { AuthProvider } from './components/auth/AuthContext';
-
+import LoginPage from './pages/login/LoginPage';
+import PrivateRoute from './components/auth/PrivateRoute';
 function App() {
   return (
     <AuthProvider>
@@ -25,12 +26,13 @@ function App() {
       <Layout>
         <Switch>
           <Route path="/" exact component={MainPage}></Route>
-          <Route path="/login" component={GoogleLoginButton}></Route>
+          {/* <Route path="/login" component={GoogleLoginButton}></Route> */}
+          <Route path="/login" component={LoginPage}></Route>
           <Route path="/loginSuccess" component={LoginSuccess} />
           <Route path="/loginFailure" component={LoginFailure} />
           <Route path="/search" component={SearchPage}></Route>
           <Route path="/find" component={ResultsPage}></Route>
-          <Route path="/info/:atcid" component={InfoPage}></Route>
+          <PrivateRoute path="/info/:atcid" component={InfoPage}></PrivateRoute>
 
 
           <Route path="/lost-posts" exact component={LostPostsPage}></Route>
